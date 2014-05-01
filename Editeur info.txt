@@ -1,0 +1,10 @@
+Pour éditer un monde, ouvrez le fichier "monde.txt" et placez les blocks tels 
+que vous le souhaitez.
+
+1 : pour les blocks sol
+2 : pour les blocks mysteres
+3 : pour le point d'apparition
+4 : pour les blocks cassables
+5 : pour les monstres
+6 : pour la fin
+/ : a la fin d'un niveau pour signaler au programme qu'il doit charger un autre niveau apres

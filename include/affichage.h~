@@ -1,0 +1,10 @@
+#ifndef AFF
+#define AFF
+#include "main.h"
+
+void dessineBlock (GLint x, GLint y);
+void dessineFond ();
+void display ();
+void transition();
+
+#endif
