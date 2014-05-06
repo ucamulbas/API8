@@ -127,8 +127,6 @@ int scene0()
       terminer=1;
     }
   deplaceJoueur();
-  deplaceMob();
-  deplaceObjet();
   return terminer;
 }
 
@@ -147,8 +145,6 @@ int scene1()
       terminer=2;
     }
   deplaceJoueur();
-  deplaceMob();
-  deplaceObjet();
   return terminer;
 }
 
@@ -163,8 +159,9 @@ int scene2()
       monde[6][4].y-=0.5;
       i++;
     }
-  if(i>=40 && i<117)
+  if(i>=40 && i<500)
     {
+      printf("i=%d\n",i);
       droite=1;
       if(i<80)
 	monde[6][4].x+=0.5;
@@ -187,9 +184,23 @@ int scene2()
 	haut=1;
       if(i==106)
 	haut=0;
+      
+      if(i==280)//je saute et tue le 1er mob 
+	haut=1;
+      if(i==290)
+	haut=0;
+
+      if(i==315)//je saute et tue le 2eme mob
+	haut=1;
+      if(i==320)
+	haut=0;
+
+
+
+      
       i++;
     }
-  if(i==117)
+  if(i==500)
     {
       terminer = 3;
       droite=0;

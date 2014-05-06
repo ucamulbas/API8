@@ -69,7 +69,7 @@ void collisionJoueur()
 	  {
 	    mob[y].use=1;//il meurt
 	    mob[y].obj=0;
-	    sautF = 10;
+	    sautF = 5;
 	    continue;
 	  }
 	if(tailleJoueur==1.5)//sinon si je suis grand

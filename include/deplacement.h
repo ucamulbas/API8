@@ -10,5 +10,6 @@ void deplaceMob();
 
 int scene0();
 int scene1();
+int scene2();
 
 #endif
