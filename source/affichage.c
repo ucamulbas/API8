@@ -18,6 +18,7 @@
   id[2]: fond
   id[3]: faceSupBlock
   id[4]: faceInfBlock
+  id[5]: drapeau
 */
 
 void dessineBlock (GLint x, GLint y)
@@ -222,16 +223,27 @@ void display ()
 void transition()
 {
   static float i = 0.0;
-  glLoadIdentity();
-  glPushMatrix();
-  glDisable(GL_DEPTH_TEST);
+  static float monter = 0.0;
+  glEnableClientState(GL_VERTEX_ARRAY);
   glDisable(GL_LIGHTING);
+  //monter de drapeau
+  glPushMatrix();
+  glColor3f(0.2,0.8,0.2);
+  glTranslatef(posFinNivX,posFinNivY+monter,CAMZ);
+  glBindBuffer(GL_ARRAY_BUFFER,id[5]);
+  glVertexPointer(3,GL_FLOAT,3*sizeof(GLfloat),BUFFER_OFFSET(0));
+  glDrawArrays(GL_TRIANGLES,0,3);
+  glBindBuffer(GL_ARRAY_BUFFER, 0);
+  glColor3f(1.0,1.0,1.0);
+  glPopMatrix();
+  //transition
+  glDisable(GL_DEPTH_TEST);
   glColor4f(0.0,0.0,0.0,i);
   glBindBuffer(GL_ARRAY_BUFFER,id[2]);
-  glEnableClientState(GL_VERTEX_ARRAY);
   glVertexPointer(3,GL_FLOAT,3*sizeof(GLfloat),BUFFER_OFFSET(0));
   glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
   glDrawArrays(GL_QUADS,0,4);
+  glDisableClientState(GL_VERTEX_ARRAY);
   glBindBuffer(GL_ARRAY_BUFFER, 0);
   glEnable(GL_DEPTH_TEST);
   glEnable(GL_LIGHTING);
@@ -241,8 +253,12 @@ void transition()
       chargeMonde();
       transi=0;
       i=0.0;
+      monter=0;
     }
   else
-    i+=0.01;
-  glPopMatrix();
+    {
+      i+=0.01;
+      if(monter<9)
+	monter+=0.2;
+    }
 }

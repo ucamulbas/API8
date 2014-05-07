@@ -14,7 +14,7 @@
 
 GLfloat camx = 0.0, camy = 0.0, scamy, hauteur, tailleJoueur = 1.0, posFinNivX, posFinNivY; // position de la camera, variable pour le saut , taille du joueur et position de la fin du niveau
 //GLfloat departX, departY; //position d'apparition du joueur
-GLuint id[5], idTexture[11], beau = 0; //les differents id pour VBO et texture
+GLuint id[6], idTexture[11], beau = 0; //les differents id pour VBO et texture
 GLuint tailleX = 0, tailleY = 0; //taille reel du monde
 GLuint nbObjet, nbMob, invincible = 0, sautF = 0;  //variable pour le nombre d'objet, de monstre , d'invincibilite et de saut force
 GLuint droite = 0, haut = 0, gauche = 0, vue = 0, collHaut = 0, collBas = 0, collDroite = 0, collGauche = 0, droiteO = 0, gaucheO = 0; //Variable booleenne de deplacement
@@ -143,9 +143,12 @@ void init()
 			0,1,0,
 			0,1,0};
 
+  static GLfloat drapeau[]={0,0,0,
+			    0,-2,0,
+			    5,-1,0};
   
-  // je met en VBO mes cube
-  glGenBuffers(5, id);
+  // je met en VBO mes formes
+  glGenBuffers(6, id);
   glBindBuffer(GL_ARRAY_BUFFER, id[0]);
   glBufferData(GL_ARRAY_BUFFER, sizeof(sol), sol, GL_STATIC_DRAW);
   glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -164,6 +167,10 @@ void init()
 
   glBindBuffer(GL_ARRAY_BUFFER, id[4]);
   glBufferData(GL_ARRAY_BUFFER, sizeof(faceInfBlock), faceInfBlock, GL_STATIC_DRAW);
+  glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+  glBindBuffer(GL_ARRAY_BUFFER, id[5]);
+  glBufferData(GL_ARRAY_BUFFER, sizeof(drapeau), drapeau, GL_STATIC_DRAW);
   glBindBuffer(GL_ARRAY_BUFFER, 0);
   
   //je charge ma texture

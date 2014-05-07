@@ -12,6 +12,8 @@ void deplaceJoueur()
   if((scamy == camy) && !collBas)
     {
       camy-=0.5;
+      /* if(!eau) */ //plus tard je mettrais de l'eau
+	haut=0;
     }
   scamy=camy;
   if((haut || sautF) /* && camy < hauteur + 10 && camy<0 */ && !collHaut)
