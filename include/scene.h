@@ -3,9 +3,9 @@
 #include "main.h"
 #include "deplacement.h"
 
-int scene0();
-int scene1();
-int scene2();
-int scene3();
+void scene0();
+void scene1();
+void scene2();
+void scene3();
 
 #endif

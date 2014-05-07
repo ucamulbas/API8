@@ -317,13 +317,13 @@ void idle()
   if(!transi)
     switch(suivant)
       {
-      case 0:suivant=scene0();
+      case 0:scene0();
 	break;
-      case 1:suivant=scene1();
+      case 1:scene1();
 	break;
-      case 2:suivant=scene2();
+      case 2:scene2();
 	break;
-      case 3: suivant=scene3();
+      case 3:scene3();
 	break;
       }
   glutPostRedisplay();

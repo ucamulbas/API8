@@ -1,10 +1,9 @@
 #include "../include/scene.h"
 
-int scene0()
+void scene0()
 {
   static int i = 0;
   static int ok = 0;
-  static int terminer = 0;
   if(i<90 && !ok)
     {
       droite=1;
@@ -30,36 +29,26 @@ int scene0()
       i++;
     }
   else if(i>=81 && ok)
-    {
-      gauche=0;
-      terminer=1;
-    }
+    gauche=0;
   deplaceJoueur();
-  return terminer;
 }
 
-int scene1()
+void scene1()
 {
   static int i = 0;
-  static int terminer = 1;
   if(i<120)
     {
       droite=1;
       i++;
     }
   else
-    {
-      droite=0;
-      terminer=2;
-    }
+    droite=0;
   deplaceJoueur();
-  return terminer;
 }
 
-int scene2()
+void scene2()
 {
   static int i = 0;
-  static int terminer = 2;
   if(!i)
     {
       nbObjet=1;
@@ -150,22 +139,15 @@ int scene2()
       i++;
     }
   if(i==586)
-    {
-      terminer = 3;
-      droite=0;
-    }
+    droite=0;
   deplaceJoueur();
   deplaceMob();
   deplaceObjet();
-  return terminer;
 }
-
-int scene3()
+void scene3()
 {
   static int i = 0;
-  static int terminer = 3;
   deplaceJoueur();
   deplaceObjet();
   deplaceMob();
-  return terminer;
 }

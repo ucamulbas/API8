@@ -254,6 +254,7 @@ void transition()
       transi=0;
       i=0.0;
       monter=0;
+      suivant++;
     }
   else
     {
