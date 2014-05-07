@@ -1,7 +1,7 @@
 /*
   Pagny Jérémie
   12311178
-  Intensif OpenGL 2014
+  API8
 */
 
 #include "../include/main.h"
@@ -318,6 +318,8 @@ void idle()
       case 1:suivant=scene1();
 	break;
       case 2:suivant=scene2();
+	break;
+      case 3: suivant=scene3();
 	break;
       }
   glutPostRedisplay();

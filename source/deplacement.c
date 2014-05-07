@@ -12,10 +12,9 @@ void deplaceJoueur()
   if((scamy == camy) && !collBas)
     {
       camy-=0.5;
-      haut = 0;
     }
   scamy=camy;
-  if((haut || sautF) && camy < hauteur + 10 && camy<0 && !collHaut)
+  if((haut || sautF) /* && camy < hauteur + 10 && camy<0 */ && !collHaut)
     camy+=.5;
   if(droite && !collDroite)
     camx+=.5;
@@ -152,6 +151,20 @@ int scene2()
 {
   static int i = 0;
   static int terminer = 2;
+  if(!i)
+    {
+      nbObjet=1;
+      monde[3][110].obj=1;
+      monde[3][110].numObjet=0;
+      objet = calloc(nbObjet,sizeof*objet);
+      objet[0].x=0.0;
+      objet[0].y=2.0;
+      objet[0].use=0;
+      objet[0].obj=0;
+      objet[0].id=0;
+      objet[0].xd=monde[3][110].x;
+      objet[0].yd=monde[3][110].y;
+    }
   if(i<27)
     i++;
   if(i<40 && i>=27)
@@ -159,9 +172,8 @@ int scene2()
       monde[6][4].y-=0.5;
       i++;
     }
-  if(i>=40 && i<500)
+  if(i>=40 && i<586)
     {
-      printf("i=%d\n",i);
       droite=1;
       if(i<80)
 	monde[6][4].x+=0.5;
@@ -172,7 +184,7 @@ int scene2()
 	  monde[6][16].y-=0.3;
 	  monde[6][17].y-=0.1;
 	}
-      if(i==80)
+      if(i==80)//je commence a sauter les marches
 	haut=1;
       if(i==85)
 	haut=0;
@@ -182,25 +194,35 @@ int scene2()
 	haut=0;
       if(i==99)
 	haut=1;
-      if(i==106)
+      if(i==106)//je fini de sauter les marches
 	haut=0;
-      
       if(i==280)//je saute et tue le 1er mob 
 	haut=1;
       if(i==290)
 	haut=0;
-
       if(i==315)//je saute et tue le 2eme mob
 	haut=1;
       if(i==320)
 	haut=0;
-
-
-
-      
+      if(i==337)//je saute et tue le 3eme mob
+	haut=1;
+      if(i==342)
+	haut=0;
+      if(i==360)//je saute et tue le 4eme mob
+	haut=1;
+      if(i==366)
+	haut=0;
+      if(i==470)
+	haut=1;
+      if(i==475)
+	haut=0;
+      if(i>480 && i<510)
+	droite=0;
+      else
+	droite=1;
       i++;
     }
-  if(i==500)
+  if(i==586)
     {
       terminer = 3;
       droite=0;
@@ -208,5 +230,15 @@ int scene2()
   deplaceJoueur();
   deplaceMob();
   deplaceObjet();
+  return terminer;
+}
+
+int scene3()
+{
+  static int i = 0;
+  static int terminer = 3;
+  deplaceJoueur();
+  deplaceObjet();
+  deplaceMob();
   return terminer;
 }
