@@ -298,11 +298,7 @@ void idle()
 	  exit(0);
 	}
       else
-	{
-	  transi=1;
-	  /* reinitMonde(); */
-	  /* chargeMonde(); */
-	}
+	transi=1;
       droite=gauche=haut=0;
     }
   if(invincible)
