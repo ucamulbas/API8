@@ -10,6 +10,7 @@
 #include "../include/affichage.h"
 #include "../include/deplacement.h"
 #include "../include/chargeMonde.h"
+#include "../include/scene.h"
 
 GLfloat camx = 0.0, camy = 0.0, scamy, hauteur, tailleJoueur = 1.0, posFinNivX, posFinNivY; // position de la camera, variable pour le saut , taille du joueur et position de la fin du niveau
 //GLfloat departX, departY; //position d'apparition du joueur
