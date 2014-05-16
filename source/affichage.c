@@ -30,20 +30,9 @@ void dessineBlock (GLint x, GLint y)
   if(monde[y][x].id==5)
     {
       glTranslatef(mob[monde[y][x].numObjet].x,mob[monde[y][x].numObjet].y,0.0);
-      if(!beau)
-	{
-	  glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, marron);
-	  glutSolidSphere(1.0,50,50);
-	  glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, cBlanc);
-	}
-      else
-	{
-	  glRotatef(10,0,1,0);
-	  glRotatef(-90,1,0,0);
-	  glBindTexture(GL_TEXTURE_2D, idTexture[10]);
-	   gluSphere(quadAtmosphere,1,128,128);
-	  glBindTexture(GL_TEXTURE_2D, 0);
-	}
+      glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, marron);
+      glutSolidSphere(1.0,50,50);
+      glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, cBlanc);
       return;
     }
   glBindBuffer(GL_ARRAY_BUFFER, id[1]);
@@ -57,19 +46,9 @@ void dessineBlock (GLint x, GLint y)
 	    {
 	      glPushMatrix();
 	      glTranslatef(objet[monde[y][x].numObjet].x,objet[monde[y][x].numObjet].y,0.0);
-	      if(!beau)
-		{
-		  glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, rouge);
-		  glutWireSphere(1.0,50,50);
-		  glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, cBlanc);
-		}
-	      else
-		{
-		  glRotatef(10,0,1,0);
-		  glRotatef(-90,1,0,0);
-		  glBindTexture(GL_TEXTURE_2D, idTexture[9]);
-		  gluSphere(quadAtmosphere,1,128,128);
-		}
+	      glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, rouge);
+	      glutWireSphere(1.0,50,50);
+	      glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, cBlanc);
 	      glPopMatrix();
 	    }
 	  glBindTexture(GL_TEXTURE_2D, idTexture[2]); //mon block a ete frappé

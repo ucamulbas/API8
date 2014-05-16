@@ -7,7 +7,6 @@ void clavier(unsigned char key, int x, int y)
     case 27: free(objet); free(mob); exit(0); break;
     case 'v': if(vue) vue = 0; else vue = 1; break;
     case 't': if(tailleJoueur==1.5) tailleJoueur=1.0; else tailleJoueur=1.5; break;
-    case 'b': if(beau) beau = 0; else beau = 1; break;
     case 'd': droite = 1; break;
     case 'q': gauche = 1; break;
     case 'z':

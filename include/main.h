@@ -41,7 +41,7 @@ typedef struct monde terrain;
 
 
 extern GLfloat camx, camy, scamy, hauteur, tailleJoueur, posFinNivX, posFinNivY;
-extern GLuint id[6], idTexture[11],beau;
+extern GLuint id[6], idTexture[9];
 extern GLuint tailleX, tailleY; 
 extern GLuint nbObjet, nbMob, invincible, sautF;
 extern GLuint droite, haut, gauche, vue, collHaut, collBas, collDroite, collGauche, droiteO, gaucheO;

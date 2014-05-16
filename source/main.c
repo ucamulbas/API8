@@ -14,7 +14,7 @@
 
 GLfloat camx = 0.0, camy = 0.0, scamy, hauteur, tailleJoueur = 1.0, posFinNivX, posFinNivY; // position de la camera, variable pour le saut , taille du joueur et position de la fin du niveau
 //GLfloat departX, departY; //position d'apparition du joueur
-GLuint id[6], idTexture[11], beau = 0; //les differents id pour VBO et texture
+GLuint id[6], idTexture[9]; //les differents id pour VBO et texture
 GLuint tailleX = 0, tailleY = 0; //taille reel du monde
 GLuint nbObjet, nbMob, invincible = 0, sautF = 0;  //variable pour le nombre d'objet, de monstre , d'invincibilite et de saut force
 GLuint droite = 0, haut = 0, gauche = 0, vue = 0, collHaut = 0, collBas = 0, collDroite = 0, collGauche = 0, droiteO = 0, gaucheO = 0; //Variable booleenne de deplacement
@@ -177,7 +177,7 @@ void init()
   texture=malloc(sizeof(texture));
   if (ImageLoad("image/solCote.bmp", texture)==-1) 
     return;
-  glGenTextures(11, idTexture);
+  glGenTextures(9, idTexture);
   glBindTexture(GL_TEXTURE_2D, idTexture[0]);
   glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
   glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
@@ -265,26 +265,6 @@ void init()
   glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR); 
   glTexImage2D(GL_TEXTURE_2D,0,GL_RGB,texture->sizeX,texture->sizeY,0,GL_RGB,GL_UNSIGNED_BYTE,texture->data); 
   glBindTexture(GL_TEXTURE_2D,0);
-  
-  if (ImageLoad("image/Champi.bmp", texture)==-1) 
-    return;
-  glBindTexture(GL_TEXTURE_2D, idTexture[9]);
-  glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-  glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
-  glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR); 
-  glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR); 
-  glTexImage2D(GL_TEXTURE_2D,0,GL_RGB,texture->sizeX,texture->sizeY,0,GL_RGB,GL_UNSIGNED_BYTE,texture->data); 
-  glBindTexture(GL_TEXTURE_2D,0);
-
-  if (ImageLoad("image/Gumba.bmp", texture)==-1) 
-    return;
-  glBindTexture(GL_TEXTURE_2D, idTexture[10]);
-  glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-  glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
-  glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR); 
-  glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR); 
-  glTexImage2D(GL_TEXTURE_2D,0,GL_RGB,texture->sizeX,texture->sizeY,0,GL_RGB,GL_UNSIGNED_BYTE,texture->data); 
-  glBindTexture(GL_TEXTURE_2D,0);
 
   free(texture->data); 
   free(texture);
@@ -309,6 +289,9 @@ void idle()
 	transi=1;
       droite=gauche=haut=0;
     }
+  //a vire
+  if(suivant==3)
+    exit(1);
   if(invincible)
     invincible--;
   if(sautF)
