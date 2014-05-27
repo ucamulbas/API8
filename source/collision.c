@@ -2,7 +2,7 @@
 
 void collisionJoueur()
 {
-  GLint x,y;
+  GLuint x,y;
   for(y=0;y<tailleY;y++)
     for(x=0;x<tailleX;x++)
       {
@@ -94,7 +94,7 @@ void collisionJoueur()
 
 void collisionObjetMonstre(GLfloat tx, GLfloat ty)
 {
-  GLint x,y;
+  GLuint x,y;
   for(y=0;y<tailleY;y++)
     for(x=0;x<tailleX;x++)
       {

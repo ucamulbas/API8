@@ -1,6 +1,6 @@
 CC=gcc
-FLAGS= -g -lglut -lGL -lGLU -Wall -lm
-SRC= source/main.c source/LoadBMP.c source/clavier.c source/collision.c source/affichage.c source/chargeMonde.c source/deplacement.c source/scene.c
+FLAGS= -g -lglut -lGL -lGLU -W -Wall -lm
+SRC= source/main.c source/LoadBMP.c source/collision.c source/affichage.c source/chargeMonde.c source/deplacement.c source/scene.c
 OBJ=$(SRC:%.c=objet/%.o)
 
 Mario:	$(OBJ)

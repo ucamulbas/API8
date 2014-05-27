@@ -143,7 +143,7 @@ void dessineFond ()
 
 void display ()
 {
-  GLint x,y;
+  GLuint x,y;
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   glBlendFunc (GL_ONE, GL_ZERO);
   glLoadIdentity();

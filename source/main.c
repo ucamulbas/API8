@@ -5,7 +5,6 @@
 */
 
 #include "../include/main.h"
-#include "../include/clavier.h"
 #include "../include/collision.h"
 #include "../include/affichage.h"
 #include "../include/deplacement.h"
@@ -320,8 +319,6 @@ int main(int argc, char** argv)
   srand(time(0));
   init (); 
   glutReshapeFunc(reshape);
-  glutKeyboardFunc(clavier);
-  glutKeyboardUpFunc(clavierUp);
   glutDisplayFunc(display);
   glutIdleFunc(idle);
   chargeMonde();

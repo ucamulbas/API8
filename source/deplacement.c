@@ -30,7 +30,7 @@ void deplaceJoueur()
 
 void deplaceObjet()
 {
-  GLint i;
+  GLuint i;
   GLint fin =  tailleY*2+30;
   for(i=0;i<nbObjet;i++)
     {
@@ -60,7 +60,7 @@ void deplaceObjet()
 
 void deplaceMob()
 {
-  GLint i;
+  GLuint i;
   GLint fin =  tailleY*2+30;
   for(i=0;i<nbMob;i++)
     {

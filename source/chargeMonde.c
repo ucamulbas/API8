@@ -9,7 +9,7 @@ void chargeMonde()
 {
   char ligne[TAILLEMONDEX];
   FILE *fichier;
-  GLint  x, y=0, ch, attribObj;
+  GLuint  x, y=0, ch, attribObj;
   GLfloat positionObjX = 0.0, positionObjY = 0.0;
   GLint LM = -1;
   nbObjet = 0, nbMob = 0;
@@ -19,7 +19,7 @@ void chargeMonde()
       exit(1);
     }
   //je recupere le monde
-  while(LM!=ligneMonde)
+  while(LM!=(int)ligneMonde)
     {
       fgets(ligne,TAILLEMONDEX-1,fichier);
       LM++;
@@ -156,7 +156,7 @@ void chargeMonde()
 
 void rechargeMonde ()
 {
-  int x,y;
+  GLuint x,y;
   for(y=0;y<tailleY;y++)
     for(x=0;x<tailleX;x++)
       {
@@ -193,7 +193,7 @@ void rechargeMonde ()
 
 void reinitMonde ()
 {
-  int x,y;
+  GLuint x,y;
   for(y=0;y<tailleY;y++)
     for(x=0;x<tailleX;x++)
       {

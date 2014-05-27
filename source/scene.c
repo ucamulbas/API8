@@ -1,7 +1,7 @@
 #include "../include/scene.h"
 void automate()
 {
-  int x,nbTrou,y,trou;
+  GLuint x,nbTrou,y,trou;
   int yJoueur = ((camy+1+tailleJoueur-(tailleJoueur-1))/2)-1;
   int xJoueur = camx/2;
   float distance, distanceMob, milieu=(camy+2+tailleJoueur);
@@ -10,7 +10,7 @@ void automate()
   if(!stop)
     droite=1;
   x=xJoueur;
-  if(-yJoueur>=0 && -yJoueur!=tailleY)
+  if(-yJoueur>=0 && -yJoueur!=(int)tailleY)
     {
       collisionJoueur();
       if(scamx==camx && scamy==camy && collBas && !attObj)
