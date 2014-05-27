@@ -46,7 +46,7 @@ extern GLuint tailleX, tailleY;
 extern GLuint nbObjet, nbMob, invincible, sautF;
 extern GLuint droite, haut, gauche, vue, collHaut, collBas, collDroite, collGauche, droiteO, gaucheO;
 extern terrain monde[TAILLEMONDEY][TAILLEMONDEX], *objet, *mob;
-extern GLuint ligneMonde, next, suivant, action, transi, anticipation;
+extern GLuint ligneMonde, next, suivant, action, transi;
 extern GLUquadricObj *quadAtmosphere;
 
 

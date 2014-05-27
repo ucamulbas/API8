@@ -228,17 +228,24 @@ void transition()
   glEnable(GL_LIGHTING);
   if((int)i==1)
     {
+      if(!next)
+	{
+	  free(objet);
+	  free(mob);
+	  exit(0);
+	}
       reinitMonde();
       chargeMonde();
       transi=0;
       i=0.0;
       monter=0;
       suivant++;
+      sautF=0;
     }
   else
     {
       i+=0.01;
       if(monter<9)
-	monter+=0.2;
+	monter+=0.17;
     }
 }

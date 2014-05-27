@@ -3,9 +3,8 @@
 #include "main.h"
 #include "deplacement.h"
 
+void automate();
 void scene0();
-void scene1();
 void scene2();
-void scene3();
 
 #endif

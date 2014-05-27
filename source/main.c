@@ -20,7 +20,7 @@ GLuint nbObjet, nbMob, invincible = 0, sautF = 0;  //variable pour le nombre d'o
 GLuint droite = 0, haut = 0, gauche = 0, vue = 0, collHaut = 0, collBas = 0, collDroite = 0, collGauche = 0, droiteO = 0, gaucheO = 0; //Variable booleenne de deplacement
 terrain monde[TAILLEMONDEY][TAILLEMONDEX], *objet, *mob;// declaration du monde , d'un tableau d'objet et d'un tableau de monstre
 GLuint ligneMonde = 0, next = 0;
-GLuint suivant = 0, action = 0, transi = 0; //suivant et action sont des variables pour API8, suivant sert pour les scenes et action pour des effets autre genre rotation du monde
+GLuint suivant = 0, action = 0, transi = 0, anticipation = 0; //suivant et action sont des variables pour API8, suivant sert pour les scenes et action pour des effets autre genre rotation du monde
 GLUquadricObj *quadAtmosphere;
  
 
@@ -279,19 +279,9 @@ void idle()
 {
   if((camx<=posFinNivX+1 && camx>=posFinNivX-1) && (camy+3<=posFinNivY+10 && camy+3 >=posFinNivY))
     {
-      if(!next)
-	{
-	  free(objet);
-	  free(mob);
-	  exit(0);
-	}
-      else
-	transi=1;
+      transi=1;
       droite=gauche=haut=0;
     }
-  //a vire
-  if(suivant==3)
-    exit(1);
   if(invincible)
     invincible--;
   if(sautF)
@@ -300,13 +290,12 @@ void idle()
   if(!transi)
     switch(suivant)
       {
-      case 0:scene0();
-	break;
-      case 1:scene1();
-	break;
-      case 2:scene2();
-	break;
-      case 3:scene3();
+      case 5:scene0();
+    	break;
+      case 6:scene2();
+    	break;
+      case 7:exit(1);
+      default:automate();
 	break;
       }
   glutPostRedisplay();

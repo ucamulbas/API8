@@ -21,7 +21,7 @@ void collisionJoueur()
 		(camx>(monde[y][x].x-1) && camx<(monde[y][x].x+1)))) //je touche avec la tete ?
 	      {
 		collHaut=1; //tete
-		if(haut)
+		if(haut || sautF)
 		  {
 		    if(monde[y][x].id==4 && tailleJoueur==1.5)
 		      monde[y][x].use=1;
@@ -69,7 +69,14 @@ void collisionJoueur()
 	  {
 	    mob[y].use=1;//il meurt
 	    mob[y].obj=0;
-	    sautF = 5;
+	    if(!anticipation)
+	      sautF=2;
+	    else if(anticipation==1)
+	      sautF=4;
+	    else if(anticipation==2)
+	      sautF=1;
+	    else
+	      sautF=5;
 	    continue;
 	  }
 	if(tailleJoueur==1.5)//sinon si je suis grand
