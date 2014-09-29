@@ -10,6 +10,7 @@
 #include "../include/deplacement.h"
 #include "../include/chargeMonde.h"
 #include "../include/scene.h"
+#include "../include/clavier.h"
 
 GLfloat camx = 0.0, camy = 0.0, scamy, hauteur, tailleJoueur = 1.0, posFinNivX, posFinNivY; // position de la camera, variable pour le saut , taille du joueur et position de la fin du niveau
 //GLfloat departX, departY; //position d'apparition du joueur
@@ -286,17 +287,22 @@ void idle()
   if(sautF)
     sautF--;
   //je charge les scenes
-  if(!transi)
+  if(!transi && action)
     switch(suivant)
       {
       case 5:scene0();
     	break;
       case 6:scene2();
     	break;
-      case 7:exit(1);
       default:automate();
 	break;
       }
+  else
+    {
+      deplaceJoueur();
+      deplaceObjet();
+      deplaceMob();
+    }
   glutPostRedisplay();
 }
 
@@ -321,6 +327,8 @@ int main(int argc, char** argv)
   glutReshapeFunc(reshape);
   glutDisplayFunc(display);
   glutIdleFunc(idle);
+  glutKeyboardFunc(clavier);
+  glutKeyboardUpFunc(clavierUp);
   chargeMonde();
   glutMainLoop();
   return 0; 
