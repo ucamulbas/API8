@@ -15,7 +15,7 @@ void deplaceJoueur()
       haut=0;
     }
   scamy=camy;
-  if((haut || sautF) && !collHaut)
+  if((haut || sautF) && !collHaut && camy<hauteur+10)
     camy+=.5;
   if(droite && !collDroite)
     camx+=.5;
